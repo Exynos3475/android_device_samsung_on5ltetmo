@@ -16,3 +16,11 @@
 
 # Include common makefile
 $(call inherit-product, device/samsung/exynos3475-common/common.mk)
+
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+# Boot animation
+TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1280
