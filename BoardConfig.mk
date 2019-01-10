@@ -42,3 +42,14 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 
 # Recovery
 TARGET_OTA_ASSERT_DEVICE := on5ltetmo
+
+# RIL
+BOARD_VENDOR := samsung
+BOARD_MODEM_TYPE := tss310
+BOARD_PROVIDES_LIBRIL := true
+
+# RIL.java overwrite
+BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
+
+# Include path
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include

@@ -32,7 +32,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -42,3 +43,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
+
+# cpboot-daemon
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/ramdisk/cbd:root/sbin/cbd
+
+# Radio
+PRODUCT_PACKAGES += \
+    libxml2 \
+    libprotobuf-cpp-full
+
+PRODUCT_PACKAGES += \
+    libsecril-client \
+    libsecril-client-sap \
+    modemloader
+
+PRODUCT_PACKAGES += \
+    SamsungServiceMode
