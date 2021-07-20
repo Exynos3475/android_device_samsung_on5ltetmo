@@ -18,7 +18,7 @@
 set -e
 
 VENDOR=samsung
-DEVICE=j2lte
+DEVICE=on5ltetmo
 
 export INITIAL_COPYRIGHT_YEAR=2016
 
@@ -39,7 +39,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}"
 
 # Copyright headers and guards
-write_headers "j2lte"
+write_headers "on5ltetmo"
 
 # The standard blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

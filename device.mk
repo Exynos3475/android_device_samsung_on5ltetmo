@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/j2lte
+LOCAL_PATH := device/samsung/on5ltetmo
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
@@ -119,4 +119,4 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, device/samsung/universal3475-common/device-common.mk)
 
 # Call the proprietary setup
-$(call inherit-product, vendor/samsung/j2lte/j2lte-vendor.mk)
+$(call inherit-product, vendor/samsung/on5ltetmo/on5ltetmo-vendor.mk)
