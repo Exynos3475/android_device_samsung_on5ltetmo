@@ -1,6 +1,5 @@
 /*
    Copyright (c) 2016, The CyanogenMod Project. All rights reserved.
-
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -13,7 +12,6 @@
     * Neither the name of The Linux Foundation nor the names of its
       contributors may be used to endorse or promote products derived
       from this software without specific prior written permission.
-
    THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
@@ -62,57 +60,18 @@ void property_override_dual(char const system_prop[],
     property_override(vendor_prop, value);
 }
 
-void set_sim_info()
-{
-    const char *simslot_count_path = "/proc/simslot_count";
-    std::string simslot_count;
-    
-    if (ReadFileToString(simslot_count_path, &simslot_count)) {
-        simslot_count = Trim(simslot_count); // strip newline
-        property_override("ro.multisim.simslotcount", simslot_count.c_str());
-        if (simslot_count.compare("2") == 0) {
-            property_override("rild.libpath2", "/system/lib/libsec-ril-dsds.so");
-            property_override("persist.radio.multisim.config", "dsds");
-        }
-    }
-    else {
-        LOG(ERROR) << "Could not open '" << simslot_count_path << "'\n";
-    }
-}
-
 void vendor_load_properties()
 {
     std::string bootloader = GetProperty("ro.bootloader", "");
     std::string device;
 
-    if (bootloader.find("J200F") != std::string::npos) {
-        /* SM-J200F */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200F");
-    } else if (bootloader.find("J200G") != std::string::npos) {
-        /* SM-J200G */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200G");
-    } else if (bootloader.find("J200GU") != std::string::npos) {
-        /* SM-J200GU */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200GU");
-    } else if (bootloader.find("J200M") != std::string::npos) {
-        /* SM-J200M */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200M");
-    } else if (bootloader.find("J200BT") != std::string::npos) {
-        /* SM-J200BT */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200BT");
-    } else if (bootloader.find("J200Y") != std::string::npos) {
-        /* SM-J200Y */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200Y");
-    } else {
-        /* Forcing SM-J200F */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200F");
+    if (bootloader.find("G550T1") != std::string::npos) {
+        /* SM-G550T1 on5ltemtr TODO: replace the fingerprints with the right ones */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-G550T1");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/on5ltemtr/on5ltemtr:6.0.1/MMB29K/G550T1UVU2AQC4:user/release-keys");
+        property_override("ro.system.build.fingerprint", "samsung/on5ltemtr/on5ltemtr:6.0.1/MMB29K/G550T1UVU2AQC4:user/release-keys");
+        property_override("ro.build.description", "on5ltemtr-user 6.0.1 MMB29K G550T1UVU2AQC4 release-keys");
     }
-
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/j2ltejv/j2lte:5.1.1/LMY47X/J200FXXS3ARI1:user/release-keys");
-    property_override("ro.system.build.fingerprint", "samsung/j2ltejv/j2lte:5.1.1/LMY47X/J200FXXS3ARI1:user/release-keys");
-    property_override("ro.build.description", "j2ltejv-user 5.1.1 LMY47X J200FXXS3ARI1 release-keys");
-
-    set_sim_info();
 
     device = GetProperty("ro.product.device", "");
     LOG(ERROR) << "Found bootloader id '" << bootloader.c_str() << "' setting build properties for '" << device.c_str() << "' device\n";
