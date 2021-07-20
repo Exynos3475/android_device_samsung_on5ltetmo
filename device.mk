@@ -35,8 +35,8 @@ PRODUCT_PACKAGES += \
 # Boot animation
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH := 540
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -52,10 +52,10 @@ PRODUCT_PACKAGES += \
 
 # Graphics
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := large
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_CONFIG := large normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 # A list of dpis to select prebuilt apk, in precedence order.
-PRODUCT_AAPT_PREBUILT_DPI := hdpi xhdpi mdpi
+PRODUCT_AAPT_PREBUILT_DPI := xhdpi hdpi
 
 # HIDL Manifest
 PRODUCT_COPY_FILES += \
