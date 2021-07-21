@@ -24,6 +24,9 @@ TARGET_OTA_ASSERT_DEVICE := on5lte,on5ltetmo,on5ltemtr
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
+# Display
+TARGET_SCREEN_DENSITY := 320
+
 # Network Routing
 TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE := true
 
