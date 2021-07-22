@@ -13,12 +13,6 @@
 -->
 <resources>
 
-    <!-- Default value for proximity check on screen wake
-     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
-    <bool name="config_proximityCheckOnWake">true</bool>
-    <integer name="config_proximityCheckTimeout">400</integer>
-    <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
-
     <!-- Disable LiveDisplay -->
     <integer name="config_defaultLiveDisplayMode">0</integer>
     <bool name="config_enableLiveDisplay">false</bool>
@@ -33,8 +27,6 @@
         <item>org.lineageos.platform.internal.LineageGlobalActionsService</item>
     </string-array>
 
-    <!-- BurnIn protection. This should be enabled on devices that have OLED displays -->
-    <bool name="config_enableBurnInProtection">true</bool>
 
     <!-- All the capabilities of the LEDs on this device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -49,9 +41,6 @@
          For example, a device with notification and battery lights that supports
          pulsating and RGB control would set this config to 75. -->
     <integer name="config_deviceLightCapabilities">0</integer>
-
-    <!-- Disable LiveDisplay by default -->
-    <integer name="config_defaultLiveDislayMode">0</integer>
 
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
